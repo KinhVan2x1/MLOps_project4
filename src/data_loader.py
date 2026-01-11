@@ -1,7 +1,6 @@
 from typing import List, Dict
 import csv
 
-
 Student = Dict[str, float | str]
 
 class DataLoader:

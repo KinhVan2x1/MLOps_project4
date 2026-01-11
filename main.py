@@ -1,29 +1,19 @@
-from src.data_loader import DataLoader
-from src.preprocessor import Preprocessor
-from src.model import StudyModel
+
+from src.pipeline import TrainingPipeline
 
 # File path 
 path = 'data/raw/students.csv'
 
-# Parameters
-study_hours = 5
+# # Parameters
+# study_hours = 5
 
 def main() -> None:
-    # Load data
-    loader = DataLoader(path)
-    raw_data = loader.load()
+    # Pipeline initiation
+    pipeline = TrainingPipeline(path)
+    results = pipeline.run()
 
-    # Data Processing, Data Cleaning -> Need to add Data Versioning (DVC)
-    preprocessor = Preprocessor()
-    clean_data = preprocessor.clean(raw_data)
-
-    # Fit data into model:
-    model = StudyModel()
-    model.fit(clean_data)
-    
-    # Prediction
-    pred = model.predict(study_hours)
-    print(f'Predicted score for {study_hours} hours study: {pred}')
+    for row in results:
+        print(row)
 
 if __name__ == '__main__':
     main()
