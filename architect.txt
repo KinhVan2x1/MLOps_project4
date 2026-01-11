@@ -1,0 +1,16 @@
+mlops_student_project/
+├── data/
+│   ├── raw/
+│   │   └── students.csv
+│   └── processed/
+│       └── students_clean.json
+├── artifacts/
+│   ├── model.json
+│   └── metrics.json
+├── src/
+│   ├── data_loader.py
+│   ├── preprocessor.py
+│   ├── model.py
+│   ├── evaluator.py
+│   └── pipeline.py
+└── main.py
