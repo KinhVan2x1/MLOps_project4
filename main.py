@@ -2,7 +2,11 @@ from src.data_loader import DataLoader
 from src.preprocessor import Preprocessor
 from src.model import StudyModel
 
+# File path 
 path = 'data/raw/students.csv'
+
+# Parameters
+study_hours = 5
 
 def main() -> None:
     # Load data
@@ -18,7 +22,6 @@ def main() -> None:
     model.fit(clean_data)
     
     # Prediction
-    study_hours = 5
     pred = model.predict(study_hours)
     print(f'Predicted score for {study_hours} hours study: {pred}')
 
