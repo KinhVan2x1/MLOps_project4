@@ -12,6 +12,7 @@ def main() -> None:
     pipeline = TrainingPipeline(path)
     results = pipeline.run()
 
+    # Print result
     for row in results:
         print(row)
 
