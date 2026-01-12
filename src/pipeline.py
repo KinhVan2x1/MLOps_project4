@@ -2,6 +2,7 @@ from typing import List, Dict
 from src.data_loader import DataLoader
 from src.preprocessor import Preprocessor
 from src.model import StudyModel
+from src.evaluator import Evaluator
 
 Student = Dict[str, float| str]
 
@@ -11,6 +12,7 @@ class TrainingPipeline:
         self.loader = DataLoader(data_path)
         self.preprocessor = Preprocessor()
         self.model = StudyModel()
+        self.evaluator = Evaluator()
     
     def run(self) -> List[Student]:
         # Load Data
@@ -28,4 +30,9 @@ class TrainingPipeline:
             predicted_score = self.model.predict(row['study_hours'])
             predictions.append(predicted_score)
         
-        return predictions
+        print(predictions)
+
+        # Model evaluation
+        mae = self.evaluator.mean_absolute_error(processed_data, predictions)
+        print(f'Mean Absolute Error: {mae}')
+        
