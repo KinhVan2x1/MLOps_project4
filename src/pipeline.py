@@ -29,10 +29,9 @@ class TrainingPipeline:
         for row in processed_data:
             predicted_score = self.model.predict(row['study_hours'])
             predictions.append(predicted_score)
+        return predictions
         
-        print(predictions)
+       
+        
 
-        # Model evaluation
-        mae = self.evaluator.mean_absolute_error(processed_data, predictions)
-        print(f'Mean Absolute Error: {mae}')
         

@@ -12,8 +12,8 @@ def main() -> None:
     pipeline = TrainingPipeline(path)
     results = pipeline.run()
 
-    # # Print result
-    # print(results)
+    # Print result
+    print(results)
 
 if __name__ == '__main__':
     main()

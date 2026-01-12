@@ -13,16 +13,16 @@ class Evaluator:
         
         return sum(errors)/len(errors)
 
-# Test:
+# # Test:
 
-evaluator = Evaluator()
+# evaluator = Evaluator()
 
-y_true = [10.0, 20.0, 30.0]
-y_pred = [12.0, 18.0, 33.0]
+# y_true = [10.0, 20.0, 30.0]
+# y_pred = [12.0, 18.0, 33.0]
 
-result = evaluator.mean_absolute_error(y_true, y_pred)
+# result = evaluator.mean_absolute_error(y_true, y_pred)
 
-print(result)
+# print(result)
 
 
 
