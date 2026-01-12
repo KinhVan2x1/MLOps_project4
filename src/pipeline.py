@@ -20,13 +20,16 @@ class TrainingPipeline:
 
         # Process Data, Data Cleaning
         processed_data = self.preprocessor.clean(raw_data)
+
+        # Train split test
+        train_data, validation_data = self.loader.train_test_split(processed_data, split_ratio=0.5)
     
         # Model training
-        self.model.fit(processed_data)
+        self.model.fit(train_data)
 
         # Model Prediction
         predictions = []
-        for row in processed_data:
+        for row in train_data:
             predicted_score = self.model.predict(row['study_hours'])
             predictions.append(predicted_score)
         return predictions
