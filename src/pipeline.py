@@ -22,7 +22,7 @@ class TrainingPipeline:
         processed_data = self.preprocessor.clean(raw_data)
 
         # Train split test
-        train_data, validation_data = self.loader.train_test_split(processed_data, split_ratio=0.5)
+        train_data, validation_data = self.preprocessor.train_test_split(processed_data, split_ratio=0.5)
     
         # Model training
         self.model.fit(train_data)
@@ -33,8 +33,3 @@ class TrainingPipeline:
             predicted_score = self.model.predict(row['study_hours'])
             predictions.append(predicted_score)
         return predictions
-        
-       
-        
-
-        
