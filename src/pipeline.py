@@ -23,7 +23,7 @@ class TrainingPipeline:
 
         # Train split test
         train_data, validation_data = self.preprocessor.train_test_split(processed_data, split_ratio=0.5)
-    
+        
         # Model training
         self.model.fit(train_data)
 
